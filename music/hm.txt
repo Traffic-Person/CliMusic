@@ -6,7 +6,7 @@ use rodio::{Decoder, OutputStream, Sink, Source};
 
 fn main() {
     // convert txt to wav lmao
-    txt_to_wav("music/hm.txt", "music/hm.wav", 50).unwrap();
+    txt_to_wav("music/hm.txt", "music/hm.wav", 5000).unwrap();
 
     let (_stream, stream_handle) = OutputStream::try_default().unwrap();
     let sink = Sink::try_new(&stream_handle).unwrap();
