@@ -6,7 +6,7 @@ use rodio::{Decoder, OutputStream, Sink, Source};
 
 fn main() {
     // convert txt to wav lmao
-    txt_to_wav("music/hm.txt", "music/hm.wav", 50).unwrap();
+    file_to_wav("target/debug/CliMusic", "music/cli.wav", 1).unwrap();
 
     let (_stream, stream_handle) = OutputStream::try_default().unwrap();
     let sink = Sink::try_new(&stream_handle).unwrap();
@@ -15,7 +15,7 @@ fn main() {
         println!("{}", entry.path().display());
     }).unwrap();
 
-    let file = File::open("music/hm.wav").unwrap();
+    let file = File::open("music/cli.wav").unwrap();
     let source = Decoder::new(BufReader::new(file)).unwrap();
 
     let duration = source.total_duration();
@@ -25,10 +25,8 @@ fn main() {
     sink.sleep_until_end();
 }
 // lmao
-
-
-fn txt_to_wav(txt_path: &str, wav_path: &str, loops: usize) -> std::io::Result<()> {
-    let bytes = fs::read(txt_path)?;
+fn file_to_wav(file_path: &str, wav_path: &str, loops: usize) -> std::io::Result<()> {
+    let bytes = fs::read(file_path)?;
 
     let spec = WavSpec {
         channels: 1,
