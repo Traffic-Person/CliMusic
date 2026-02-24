@@ -7,6 +7,10 @@ how to use:
   2. run ```./CliMusic``` in the terminal
   3. read the readme further!
 
+You can use the samples btw 
+
+WARNING: cli.wav is VERY loud
+
 Navigation:
 
   Up/Down Arrows - navigation Up/Down
